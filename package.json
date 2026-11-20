@@ -1,0 +1,12 @@
+{
+  "name": "instagram-reel-consent-camera-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Consent-based one-to-one WebRTC camera sharing demo with an Instagram Reel embed",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
