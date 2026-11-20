@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>Reel & Camera Connect — Consent Demo</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div class="brand"><span class="brand-mark">▶</span><span>REEL<span class="accent">CONNECT</span></span></div>
+      <span class="secure">● CONSENT-BASED DEMO</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">WATCH • CONNECT • SHARE</p>
+      <h1>A reel worth<br><span class="gradient">sharing.</span></h1>
+      <p class="sub">Watch the Instagram Reel, then optionally start a live camera session with someone you trust.</p>
+    </section>
+
+    <section class="panel reel-panel">
+      <div class="section-heading"><span>01 / THE REEL</span><span class="muted">INSTAGRAM</span></div>
+      <div class="embed">
+        <blockquote class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/reel/DfpKYHzIu0V/"
+          data-instgrm-version="14"
+          style="background:#fff;border:0;border-radius:12px;margin:0 auto;max-width:540px;width:100%;">
+          <a href="https://www.instagram.com/reel/DfpKYHzIu0V/" target="_blank" rel="noopener">View this Reel on Instagram</a>
+        </blockquote>
+      </div>
+      <p class="hint">If Instagram does not load the embed, use the link above to open the Reel in Instagram.</p>
+    </section>
+
+    <section class="panel connect-panel">
+      <div class="section-heading"><span>02 / LIVE CAMERA SESSION</span><span class="muted">OPTIONAL</span></div>
+      <div class="notice">
+        <strong>Your camera is not accessed by opening this page.</strong>
+        The camera sender must press the buttons below, approve the browser's camera prompt, and explicitly start sharing. A visible camera preview and Stop button remain on screen.
+      </div>
+
+      <div class="room-box">
+        <label for="room">Private room code</label>
+        <div class="room-row">
+          <input id="room" maxlength="40" value="reel-friends-01" autocomplete="off">
+          <button id="copyHost" class="button secondary">Copy invite</button>
+        </div>
+        <p class="hint">Use the same room code on both devices. Share the invite with the person who will voluntarily send their camera video.</p>
+      </div>
+
+      <div class="roles">
+        <article class="role-card">
+          <div class="role-icon">◉</div>
+          <h2>I'm sharing my camera</h2>
+          <p>For the person whose camera will be shared. They control when it starts and stops.</p>
+          <button id="cameraPermission" class="button primary">1. Enable camera</button>
+          <button id="startShare" class="button primary" disabled>2. Start live sharing</button>
+          <video id="localVideo" autoplay muted playsinline></video>
+          <button id="stopShare" class="button danger" disabled>Stop camera & sharing</button>
+        </article>
+        <article class="role-card">
+          <div class="role-icon">▣</div>
+          <h2>I'm watching</h2>
+          <p>For the invited viewer. The sender's camera appears here only after they start sharing.</p>
+          <button id="joinViewer" class="button secondary">Join as viewer</button>
+          <video id="remoteVideo" autoplay playsinline controls></video>
+          <p class="hint">No recording or download feature is provided.</p>
+        </article>
+      </div>
+      <div id="status" class="status" role="status" aria-live="polite">Not connected. Choose your role to continue.</div>
+    </section>
+
+    <footer>
+      <p>Privacy first: no hidden access, no background recording, no file access. End the session any time.</p>
+      <p class="small">Camera sharing requires HTTPS (or localhost) and browser permission. Use only with the other person's informed agreement.</p>
+    </footer>
+  </main>
+
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
